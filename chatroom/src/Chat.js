@@ -4,15 +4,24 @@ import React, { useEffect, useState } from 'react';
 import './Chat.css';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import AttachFileIcon from '@material-ui/icons/AttachFile';
+import InsertEmoticonIcon from '@material-ui/icons/InsertEmoticon';
+import MicIcon from '@material-ui/icons/Mic';
 
 function Chat() {
 
     const [seed,setSeed] = useState('');
+    const [input, setInput] = useState('');
 
     useEffect(() => {
         setSeed(Math.floor(Math.random() *4000));
 
     },[]);
+
+    const sendMessage = (e) => {
+        e.preventDefault();
+        console.log("YOU TYOED>>>>>", input);
+
+    }
     
   return <div className='chat'>
       <div className="chat-header">
@@ -42,7 +51,14 @@ function Chat() {
             </p>
       </div>
       <div className="chat-footer">
-
+        <InsertEmoticonIcon />
+        <form>
+            <input type="text" placeholder='Type a message'
+                onChange={e => setInput(e.target.value)}
+            />
+            <button type='submit' onClick={sendMessage}>Send a message</button>
+        </form>
+        <MicIcon />
       </div>
 
   </div>;
