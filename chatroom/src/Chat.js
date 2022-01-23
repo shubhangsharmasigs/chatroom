@@ -20,7 +20,7 @@ function Chat() {
     const sendMessage = (e) => {
         e.preventDefault();
         console.log("YOU TYOED>>>>>", input);
-
+        setInput('');
     }
     
   return <div className='chat'>
