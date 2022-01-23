@@ -1,9 +1,16 @@
 import './App.css';
+import Sidebar from './Sidebar';
 
 function App() {
   return (
-    <div className="App">
-      <h1>Welcome to the chatroom</h1>
+    <div className="app">
+      
+
+      <div className="app-body">
+        {/* sidebar */}
+        <Sidebar />
+        {/* chat */}
+      </div>
     </div>
   );
 }
