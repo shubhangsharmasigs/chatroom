@@ -6,12 +6,16 @@ import ChatIcon from '@material-ui/icons/Chat';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import SearchOutlinedIcon from '@material-ui/icons/SearchOutlined';
 import SidebarChat from './SidebarChat';
-import db from './firebase';
+import db, { auth } from './firebase';
+import { Link, useHistory } from 'react-router-dom';
+import { useStateValue } from './StateProvider';
 
 
 function Sidebar() {
 
     const [rooms,setRooms] = useState([]);
+    const history = useHistory();
+    const [{user}, dispatch] = useStateValue();
 
     useEffect(()=> {
         const unsubscribe = db.collection("rooms").onSnapshot(snapshot =>(
@@ -29,10 +33,15 @@ function Sidebar() {
 
     },[])
 
+    const signOut = (e) => {
+        auth.signOut();
+        history.replace('/');
+    }
+
   return ( <div className='sidebar'>
         
         <div className="sidebar-header">
-            <Avatar />
+            <Avatar />{user?.displayName} <Link to ='/'><button onClick={signOut}>SignOut</button></Link>
             <div className="sidebar-headerRight">
                 <IconButton>
                      <DonutLargeIcon />
