@@ -6,12 +6,44 @@ import MoreVertIcon from '@material-ui/icons/MoreVert';
 import AttachFileIcon from '@material-ui/icons/AttachFile';
 import InsertEmoticonIcon from '@material-ui/icons/InsertEmoticon';
 import MicIcon from '@material-ui/icons/Mic';
-import { useParams } from 'react-router-dom';
-import db from './firebase';
+import { Link, useParams } from 'react-router-dom';
+import db, { auth } from './firebase';
 import firebase from "firebase";
 import { useStateValue } from './StateProvider';
+import { makeStyles } from '@material-ui/core/styles';
+import Popper from '@material-ui/core/Popper';
+
+const useStyles = makeStyles((theme) => ({
+  paper: {
+    border: '1px solid white',
+    padding: theme.spacing(1),
+    backgroundColor: theme.palette.background.paper,
+  },
+}));
+
+function SimplePopper() {
+  const classes = useStyles();
+  const [anchorEl, setAnchorEl] = React.useState(null);
+
+  const handleClick = (event) => {
+    setAnchorEl(anchorEl ? null : event.currentTarget);
+  };
+
+  const open = Boolean(anchorEl);
+  const id = open ? 'simple-popper' : undefined;
+}
 
 function Chat() {
+    const classes = useStyles();
+    const [anchorEl, setAnchorEl] = React.useState(null);
+  
+    const handleClick = (event) => {
+      setAnchorEl(anchorEl ? null : event.currentTarget);
+    };
+  
+    const open = Boolean(anchorEl);
+    const id = open ? 'simple-popper' : undefined;
+
     const [{user}, dispatch] = useStateValue();
 
     const [seed,setSeed] = useState('');
@@ -64,7 +96,15 @@ function Chat() {
                      <AttachFileIcon />
                 </IconButton>
                 <IconButton>
-                     <MoreVertIcon />
+                    <div className='vertIcon'>
+                        <button aria-describedby={id} type="button" onClick={handleClick}>
+                        <MoreVertIcon className='vertIcon'/>
+                        </button>
+                        <Popper id={id} open={open} anchorEl={anchorEl}>
+                            <div className={classes.paper}><Link to ='/'><button className='signOutBtn' onClick={() => auth.signOut()}>SignOut</button></Link></div>
+                        </Popper>
+                    </div>
+                     
                 </IconButton>
         </div>
       </div>
@@ -81,14 +121,14 @@ function Chat() {
             
       </div>
       <div className="chat-footer">
-        <InsertEmoticonIcon />
+        {/* <InsertEmoticonIcon /> */}
         <form>
             <input type="text" placeholder='Type a message'
                 onChange={e => setInput(e.target.value)}
             />
             <button type='submit' onClick={sendMessage}>Send a message</button>
         </form>
-        <MicIcon />
+        {/* <MicIcon /> */}
       </div>
 
   </div>;

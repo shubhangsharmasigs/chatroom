@@ -146,12 +146,13 @@ function Login() {
           </Modal>
 
       <div className="login-container">
+        <h2>Sign in to the Chatroom</h2>
           <img src="https://png.pngtree.com/element_our/png_detail/20181229/vector-chat-icon-png_302635.jpg"
            />
          <button onClick={() => setOpenSignIn(true)} className="app-signInBtn">Sign In</button>
          <button onClick={() => setOpen(true)} className='app-signUpBtn'>Sign Up</button>
 
-
+          
       </div>
 
   </div>;

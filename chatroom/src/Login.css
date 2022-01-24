@@ -9,13 +9,16 @@
 .login-container{
     background-color: white;
     padding: 100px;
+    display: flex;
+    flex-direction: column;
     
 }
 
 .login-container > img{
     object-fit: contain;
-    height: 100px;
+    height: 150px;
     background-color: none;
+    
 }
 
 

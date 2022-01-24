@@ -51,6 +51,7 @@
 
 .sidebar-chats{
     flex:1;
+    /* background-image: url("https://wallpapercave.com/wp/wp3113563.jpg"); */
     background-color: white;
     overflow: scroll;
 }

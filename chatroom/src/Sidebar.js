@@ -41,9 +41,9 @@ function Sidebar() {
   return ( <div className='sidebar'>
         
         <div className="sidebar-header">
-            <Avatar alt ={user?.displayName} src="/static/images/avatar/1.jpg" />{user?.displayName} <Link to ='/'><button onClick={signOut}>SignOut</button></Link>
+            <Avatar alt ={user?.displayName} src="/static/images/avatar/1.jpg" />{user?.displayName} 
             <div className="sidebar-headerRight">
-                <IconButton>
+                {/* <IconButton>
                      <DonutLargeIcon />
                 </IconButton>
                 <IconButton>
@@ -51,7 +51,7 @@ function Sidebar() {
                 </IconButton>
                 <IconButton>
                      <MoreVertIcon />
-                </IconButton>
+                </IconButton> */}
                 
                 
                 

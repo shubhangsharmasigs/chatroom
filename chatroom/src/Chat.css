@@ -28,8 +28,9 @@
 
 .chat-body{
     flex:1;
-    background-color: hotpink;
+    background-image: url("https://i.pinimg.com/736x/4d/a3/e1/4da3e1b9cadae33fb99d7b2a1a8268cf.jpg");
     background-repeat: repeat;
+    background-color: whitesmoke;
     background-position: center;
     padding:30px;
     overflow: scroll;
@@ -39,7 +40,7 @@
     position: relative;
     font-size: 15px;
     padding:10px;
-    background-color: indigo;
+    background-color: white;
     border-radius: 10px;
     width: fit-content;
     margin-bottom: 30px;
@@ -88,4 +89,8 @@
 .chat-footer > .MuiSvgIcon-root{
     padding: 10px;
     color:gray;
+}
+.signOutBtn{
+    border:none;
+    background-color: white;
 }
