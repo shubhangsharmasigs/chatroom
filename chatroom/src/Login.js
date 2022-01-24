@@ -44,19 +44,19 @@ function Login() {
         event.preventDefault();
         auth.createUserWithEmailAndPassword(email, password)
         .then((authUser) => {
+            dispatch({
+                type:"ADD_USER",
+                user:authUser.user
+            })
             return authUser.user.updateProfile({
             displayName : username
           })
-          dispatch({
-            type:"ADD_USER",
-            user:authUser.user
-
-        })
           
         })
         .catch(error => alert(error.message));
         setOpen(false);
-        history.push('/');
+        
+        history.replace('/body');
         
      }
 

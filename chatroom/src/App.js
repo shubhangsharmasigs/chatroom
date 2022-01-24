@@ -19,7 +19,7 @@ function App() {
         // means the user is logged in or was logged in
         dispatch({
           type: "SET_USER",
-          user:authUser
+          user:authUser.user
         })
 
       }
