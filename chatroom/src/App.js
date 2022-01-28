@@ -1,16 +1,17 @@
 import './App.css';
 import Chat from './Chat';
 import Sidebar from './Sidebar';
-import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'; 
+import {BrowserRouter as Router, Switch, Route,useHistory,Redirect} from 'react-router-dom'; 
 import Login from './Login';
 import { useStateValue } from './StateProvider';
 import { auth } from './firebase';
 import { useEffect } from 'react';
 
+
 function App() {
 
-  const [state, dispatch] = useStateValue();
-
+  const [{user}, dispatch] = useStateValue();
+  const history = useHistory();
 
   useEffect(() => {
     auth.onAuthStateChanged(authUser => {
@@ -32,7 +33,13 @@ function App() {
       }
     })
   }, [])
-
+  // useEffect(() => {
+  //   if(!user){
+  //     // history.replace('/');
+  //     <Redirect to="/" />
+  //     console.log(history);
+  //   }
+  // },[user])
   return (
     <div className="app">
       

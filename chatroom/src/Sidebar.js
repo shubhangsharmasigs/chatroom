@@ -37,11 +37,13 @@ function Sidebar() {
         auth.signOut();
         history.replace('/');
     }
+    console.log(user);
 
   return ( <div className='sidebar'>
         
         <div className="sidebar-header">
-            <Avatar alt ={user?.displayName} src="/static/images/avatar/1.jpg" />{user?.displayName} 
+           <div className='sidebar-avatar' ><Avatar alt ={user?.displayName} src="/static/images/avatar/1.jpg" />{user? (user?.displayName):"Guest"}</div>  
+
             <div className="sidebar-headerRight">
                 {/* <IconButton>
                      <DonutLargeIcon />

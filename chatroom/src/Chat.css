@@ -28,7 +28,7 @@
 
 .chat-body{
     flex:1;
-    background-image: url("https://i.pinimg.com/736x/4d/a3/e1/4da3e1b9cadae33fb99d7b2a1a8268cf.jpg");
+    /* background-image: url("https://i.pinimg.com/736x/4d/a3/e1/4da3e1b9cadae33fb99d7b2a1a8268cf.jpg"); */
     background-repeat: repeat;
     background-color: whitesmoke;
     background-position: center;
@@ -83,7 +83,7 @@
 }
 
 .chat-footer > form > button{
-    display: none;
+    opacity: 0;
 }
 
 .chat-footer > .MuiSvgIcon-root{

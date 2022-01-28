@@ -86,7 +86,7 @@ function Chat() {
         />
         <div className="chat-headerInfo">
             <h3>{roomName}</h3>
-            <p>{new Date(messages[messages.length-1]?.timestamp?.toDate()).toUTCString()}</p>
+            <p>{new Date(messages[messages.length-1]?.timestamp?.toDate()).toString()}</p>
         </div>
         <div className="chat-headerRight">
                 <IconButton>
@@ -114,7 +114,7 @@ function Chat() {
                     <span className="chat-name">{message.name}</span>
                     {message.message}
                     <span className="chat-timestamp">
-                           {new Date(message.timestamp?.toDate()).toUTCString()}     
+                           {new Date(message.timestamp?.toDate()).toString()}     
                     </span>
                 </p>
           ))}
@@ -123,7 +123,7 @@ function Chat() {
       <div className="chat-footer">
         {/* <InsertEmoticonIcon /> */}
         <form>
-            <input type="text" placeholder='Type a message'
+            <input type="text" placeholder='Type a message' value={input}
                 onChange={e => setInput(e.target.value)}
             />
             <button type='submit' onClick={sendMessage}>Send a message</button>
