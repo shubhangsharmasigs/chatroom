@@ -61,13 +61,13 @@ function Sidebar() {
 
         </div>
 
-        <div className="sidebar-search">
+        {/* <div className="sidebar-search">
             <div className="sidebar-searchContainer">
                 <SearchOutlinedIcon />
                 <input placeholder='Search or start new chat' type='text' />
             </div>
             
-        </div>
+        </div> */}
 
         <div className="sidebar-chats">
             <SidebarChat addNewChat />

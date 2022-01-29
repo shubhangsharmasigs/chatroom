@@ -89,12 +89,12 @@ function Chat() {
             <p>{new Date(messages[messages.length-1]?.timestamp?.toDate()).toString()}</p>
         </div>
         <div className="chat-headerRight">
-                <IconButton>
+                {/* <IconButton>
                      <SearchOutlinedIcon />
                 </IconButton>
                 <IconButton>
                      <AttachFileIcon />
-                </IconButton>
+                </IconButton> */}
                 <IconButton>
                     <div className='vertIcon'>
                         <button aria-describedby={id} type="button" onClick={handleClick}>
